@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Find Your Movie Website</title>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Paytone+One|Russo+One|Roboto|Codystar" rel="stylesheet">
+        <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+
+    <body>
+        <!-- Top Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img src="assets/images/reel.png" class="img-fluid" alt="Responsive image">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+                    <div class="row" id = "heading">
+                        <div class="col-md-12">
+                            <p class = "webHeaderLg text-uppercase text-center" id = "titleDisplay">Reel Buddy</p>
+                            <p class = "webHeaderSm text-uppercase text-center" >The Best Website to Find Your Movie</p>
+                        </div>
+                    </div>
+
+                    <form id="sign_in_form">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <input type="email" class="form-control inputForm" id="emailInput" aria-describedby="emailHelp" placeholder="Enter Email">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control inputForm" id="passwordInput" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3" id="divZipIn"></div>
+                            <div class="col-md-5" id="aletMsg"></div>
+                            <div class="col-md-4" id="btnCol">
+                                <button class="btn btn-secondary btn-sm text-uppercase align-middle submitBtn" id="signInBtn" type="button">Log In</button>
+                                <button class="btn btn-secondary btn-sm text-uppercase align-middle submitBtn" id="signUpBtn" type="button">Create ID</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Movie Slide Show -->
+        <div class="container" id = "mvSlideContainer">
+            <div class="carousel" id="movieSlide" data-flickity='{"fullscreen": true, "lazyLoad": 5, "wrapAround": true, "autoPlay": 1500}'>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/bXrZ5iHBEjH7WMidbUDQ0U2xbmr.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/eWINXglQ9JVxUuzouYK7arm9YT1.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/xHdf2wRgCSp9MrZRryikiZIH6jB.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/uj4BIueaGjPUomL7g3bpal4b8yw.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/1wS89vns6cseCn4UHSqj97xKEKW.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/30oXQKwibh0uANGMs0Sytw3uN22.jpg"/>
+                <img class="carousel-image" data-flickity-lazyload="https://image.tmdb.org/t/p/w185/t8U7u8RXkXQV9UCq0NPAANF9L9u.jpg"/>
+            </div>
+        </div>
+
+        <!-- Movie display container -->
+        <div class="container">
+            <div class="breakRow"></div>
+            <div class="row" id="movieContainer"></div>
+        </div>
+
+        <div class="container" id = "movie-showtimes">
+            <div class="row">
+                <div class = "col-md-12 text-center font-weight-bold" id= "headerRow"></div>
+                <div class="col-md-4"></div>
+                <div class = "col-md-4 text-center" id= "goBackRow"></div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class = "col-md-12" id="theaterMapContainer"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="theaterTContainer"></div>
+            </div>
+        </div>
+        <!-- MODAL -->
+        <div class="modal fade modalIndicator" id="modalVideo" tabindex="-1" role="dialog" aria-labelledby="modal-video-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div> -->
+                    <div class="modal-body">
+                        <div class="embed-responsive embed-responsive-16by9" id = "container_trailerVideo">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" id = "closeModal" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info" id = "findTheaterBtn" data-dismiss="modal">Find Theater</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- bootstrap 4.0 modal support -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script src="assets/javascript/movie.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1LfJv5lgVtzf7s0z1k0IojTx8fOp7rbY&callback=initMap"></script>
+
+    </body>
+</html>
